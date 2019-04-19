@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Dungeons and Dragons</title>
+    <link href="https://fonts.googleapis.com/css?family=Metamorphous|Raleway:400,700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://vignette.wikia.nocookie.net/dungeons/images/6/64/Favicon.ico/revision/latest?cb=20091117215827">
+  </head>
+
+  <body>
+    <div class='form'>
+
+      <h1 id="h1">Dungeons and Dragons</h1>
+
+      <div>
+        <h3>Dungeon Master:</h3>
+        <h4 id="masterName"></h4>
+        <input type="text" id="master" class="no-print">
+        <button id="master-button" class="no-print">Enter</button>
+      </div>
+
+      <div>
+        <h3>Campaign Name:</h3>
+        <h4 id="campaignName"></h4>
+        <input type="text" id="campaign" class="no-print">
+        <button id="campaign-button" class="no-print">Enter</button>
+      </div>
+
+
+      <div>
+        <h3>Characters:</h3>
+        <ul id="characters">
+        </ul>
+        <h4 class="no-print"> Add a Character </h4>
+
+        <h5 class="no-print">Name: </h5>      
+        <input type="text" id="name" class="no-print">
+        
+        <h5 class="no-print">Level: </h5>      
+        <input type="text" id="level" class="no-print">
+
+        <h5 class="no-print">Race: </h5>      
+        <input type="text" id="race" class="no-print">
+
+        <h5 class="no-print">Class: </h5>      
+        <input type="text" id="cclass" class="no-print">
+
+        <h5 class="no-print">Alignment: </h5>      
+        <!-- <input type="text" id="alignment" class="no-print"> -->
+        <select name="alignment" id="alignment" class="no-print">
+          <option value=""></option>
+          <option value="lawful-good">Lawful Good</option>
+          <option value="neutral-good">Neutral Good</option>
+          <option value="chaotic-good">Chaotic Good</option>
+          <option value="lawful-neutral">Lawful Neutral</option>
+          <option value="true-neutral">True Neutral</option>
+          <option value="chaotic-neutral">Chaotic Neutral</option>
+          <option value="lawful-evil">Lawful Evil</option>
+          <option value="neutral-evil">Neutral Evil</option>
+          <option value="chaotic-evil">Chaotic Evil</option>
+        </select>
+
+
+        <h5 class="no-print">XP: </h5>      
+        <input type="text" id="XP" class="no-print">
+
+        <button id="the-button" class="no-print">Enter New Character</button>
+      </div>
+
+      <br>
+
+      <div>
+        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+        <p ><label id="map-button" for="file" class="no-print">Upload Map</label></p>
+        <br>
+        <p><img id="output"/></p>
+      </div>
+
+      <a href="javascript:window.print()" class="no-print" id="print-button">PRINT</a>
+
+    </div>
+
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 id="modalH1">Update Character</h1>
+      <h4 id="modalH2">Input new character specs below.</h4>
+
+              <h5 class="no-print">Name: </h5>      
+        <input type="text" id="updatename" class="no-print">
+        
+        <h5 class="no-print">Level: </h5>      
+        <input type="text" id="updatelevel" class="no-print">
+
+        <h5 class="no-print">Race: </h5>      
+        <input type="text" id="updaterace" class="no-print">
+
+        <h5 class="no-print">Class: </h5>      
+        <input type="text" id="updatecclass" class="no-print">
+
+        <h5 class="no-print">Alignment: </h5>      
+        <!-- <input type="text" id="alignment" class="no-print"> -->
+        <select name="alignment" id="updatealignment" class="no-print">
+          <option value=""></option>
+          <option value="lawful-good">Lawful Good</option>
+          <option value="neutral-good">Neutral Good</option>
+          <option value="chaotic-good">Chaotic Good</option>
+          <option value="lawful-neutral">Lawful Neutral</option>
+          <option value="true-neutral">True Neutral</option>
+          <option value="chaotic-neutral">Chaotic Neutral</option>
+          <option value="lawful-evil">Lawful Evil</option>
+          <option value="neutral-evil">Neutral Evil</option>
+          <option value="chaotic-evil">Chaotic Evil</option>
+        </select>
+
+        <h5 class="no-print">XP: </h5>      
+        <input type="text" id="updateXP" class="no-print">
+
+        <button id="updateCharacterButton" class="no-print">Update Character</button>
+
+      
+      </div>
+    </div>
+
+
+    <div id="helloModal" class="modal">
+      <!-- Hello Modal content -->
+      <div class="modal-content">
+        <h1 id="helloModalH1">Hello!</h1>
+    
+
+        <button id="GoToLoginButton" class="no-print">Login</button>
+        <button id="GoToSignUpButton" class="no-print">Sign Up</button>
+      </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+      <!-- Hello Modal content -->
+      <div class="modal-content">
+        <h1 id="signupModalH1">Sign Up</h1>
+        <h4 id="signupModalH4"></h4>
+
+        <h5 class="no-print">First Name: </h5>      
+        <input type="text" id="newFirstName" class="no-print">
+
+        <h5 class="no-print">Last Name: </h5>      
+        <input type="text" id="newLastName" class="no-print">
+
+        <h5 class="no-print">Username: </h5>      
+        <input type="text" id="newUsername" class="no-print">
+
+        <h5 class="no-print">Email: </h5>      
+        <input type="text" id="newEmail" class="no-print">
+
+        <h5 class="no-print">Password: </h5>      
+        <input type="password" id="newPassword" class="no-print">
+    
+        <button id="signupButton" class="no-print">Sign Up</button>
+        <button id="loginInstead">Login instead</button>
+
+      </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+      <!-- Hello Modal content -->
+      <div class="modal-content">
+        <h1 id="loginModalH1">Login!</h1>
+        <h4 id="loginModalH4"></h4>
+
+        <h5 class="no-print">Email: </h5>      
+        <input type="text" id="loginEmail" class="no-print">
+
+        <h5 class="no-print">Password: </h5>      
+        <input type="password" id="loginPassword" class="no-print">
+    
+        <button id="loginButton" class="no-print">Login</button>
+        <button id="signupInstead">Signup instead</button>
+      </div>
+    </div>
+
+    <div id="successfulLoginModal" class="modal">
+      <!-- Hello Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 id="succussfulLoginModalH1">Login Successful!</h1>
+
+        <button id="goToSiteButton" class="no-print">Proceed</button>
+
+      </div>
+    </div>
+
+    <div id="postSignupModal" class="modal">
+      <!-- Hello Modal content -->
+      <div class="modal-content">
+        <h1 id="postSignupModalH1">Thanks For Signing Up!</h1>
+
+        <button id="GoToLoginButtonFromSignup" class="no-print">Login</button>
+      </div>
+
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
