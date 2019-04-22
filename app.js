@@ -40,7 +40,7 @@ var createCharacter = function (name, level, race, cclass, alignment, XP) {
   data += "&alignment=" + encodeURIComponent(alignment);
   data += "&XP=" + encodeURIComponent(XP);
 
-  fetch("http://localhost:8080/dndCharacters", {
+  fetch("https://dnd-server-baileeallen.herokuapp.com/dndCharacters", {
     method: 'POST',
     body: data,
     credentials: "include",
@@ -62,7 +62,7 @@ var createCharacter = function (name, level, race, cclass, alignment, XP) {
 };
 
 var deleteCharacter = function (id) {
-  fetch(`http://localhost:8080/dndCharacters/${id}`, {
+  fetch(`https://dnd-server-baileeallen.herokuapp.com/dndCharacters/${id}`, {
     method: 'DELETE',
     credentials: 'include'
   }).then(function (response) {
@@ -81,7 +81,7 @@ var updateCharacter = function (name, level, race, cclass, alignment, XP, id) {
   data += "&alignment=" + encodeURIComponent(alignment);
   data += "&XP=" + encodeURIComponent(XP);
 
-  fetch(`http://localhost:8080/dndCharacters/${id}`, {
+  fetch(`https://dnd-server-baileeallen.herokuapp.com/dndCharacters/${id}`, {
     method: 'PUT',
     credentials: 'include',
     body: data,
@@ -100,7 +100,7 @@ var sessionCreate = function (email, password) {
   var data = "email=" + encodeURIComponent(email);
   data += "&password=" + encodeURIComponent(password);
 
-  fetch(`http://localhost:8080/dndSessions`, {
+  fetch(`https://dnd-server-baileeallen.herokuapp.com/dndSessions`, {
     method: 'POST',
     credentials: 'include',
     body: data,
@@ -133,7 +133,7 @@ var UsersCreate = function (firstName, lastName, username, email, password) {
   data += "&password=" + encodeURIComponent(password);
 
 
-  fetch(`http://localhost:8080/dndUsers`, {
+  fetch(`https://dnd-server-baileeallen.herokuapp.com/dndUsers`, {
     method: 'POST',
     credentials: 'include',
     body: data,
@@ -209,7 +209,7 @@ campaignButton.onclick = function () {
 
 
 var updateList = function () {
-  fetch("http://localhost:8080/dndCharacters", {
+  fetch("https://dnd-server-baileeallen.herokuapp.com/dndCharacters", {
     credentials: 'include'
   }).then(function (response) {
     if (response.status == 401) {
